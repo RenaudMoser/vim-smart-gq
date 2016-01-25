@@ -1,4 +1,6 @@
 function! SmartGQ(type)
+    let tmp_filename = 'smartgq_tmp'
+
     if a:type ==# 'v'
         silent normal! `<0v`>$y
     elseif a:type ==# 'V'
@@ -15,8 +17,9 @@ function! SmartGQ(type)
 
     echo "Processing..."
 
-    call writefile(split(@@, '\n'), 'smartgq_tmp')
-    let result = system('autopep8 -a smartgq_tmp')
+    call writefile(split(@@, '\n'), tmp_filename)
+    let result = system(b:smart_gq_program . ' ' . tmp_filename)
+
 
     silent normal! gvdk
     silent put = result
