@@ -1,0 +1,16 @@
+# vim-smart-gq
+Redefine the gq operator to use language-specific external autoformat program
+
+This plugin replaces the gq operator for supported filetypes by a custom version that will send the selected text to an external parser (autopep8 for python) and replace the output in the buffer.
+
+Example usage:
+  gqap - Autoformat paragraph
+  gqq  - Autoformat line
+  V..gq - Autoformat visual selection
+  gggqG - Autoformat whole file
+  
+Supported filetypes:
+  - Python - requires autopep8 package
+  ... Feel free to add your own filetypes
+  
+  
