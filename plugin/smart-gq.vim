@@ -24,6 +24,8 @@ function! SmartGQ(type)
     silent normal! gvdk
     silent put = result
     redraw!
+    silent echo delete(tmp_filename)
     echo "Cleaned " . len(split(@@, "\n")) . " lines"
+
 
 endfunction
